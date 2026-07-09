@@ -119,7 +119,7 @@ button {
   width: 52px;
   height: 52px;
   flex: 0 0 52px;
-  background-image: url("assets/orahood-logo.png");
+  background-image: url("./orahood-logo.png");
   background-repeat: no-repeat;
   background-size: 240% auto;
   background-position: center 8%;
