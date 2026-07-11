@@ -1,5 +1,5 @@
 // Future integrations are configured here. Keep API keys and secrets out of this file.
-const CONTACT_FORM_ENDPOINT = "";
+const CONTACT_FORM_ENDPOINT = "https://formspree.io/f/xkodwbar";
 
 const SITE_CONFIG = {
   facebookUrl: "",
