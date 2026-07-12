@@ -62,11 +62,11 @@ const SERVICES = [
 // Set available to true only after the matching screenshot has been added to the repository.
 const PORTFOLIO_MEDIA = {
   database: {
-    title: "Database visual pending",
-    path: "assets/portfolio/red-dirt/database-schema.webp",
-    alt: "Database visual pending",
-    caption: "Database visual will be added later.",
-    available: false
+    title: "SQL data preview",
+    path: "assets/portfolio/red-dirt/sql-drinks-table.png",
+    alt: "SQL table preview showing drink records, prices, and active status",
+    caption: "SQL-ready table preview from the structured Red Dirt Sports Bar dataset.",
+    available: true
   },
   desktop: {
     title: "Application screenshot coming soon",
@@ -81,30 +81,30 @@ const DASHBOARD_PAGES = [
   {
     title: "Executive Overview",
     description: "A high-level view of total sales, food and drink revenue, transaction volume, average ticket size, tips, weekly sales trends, top products, bartender performance, and payment-method distribution.",
-    path: "assets/portfolio/red-dirt/database-preview.jpg",
+    path: "assets/portfolio/red-dirt/executive-overview.png",
     status: "Available",
     available: true
   },
   {
     title: "Product Performance",
     description: "Analysis of product revenue, units sold, average selling price, sales mix, weekday performance, and item-level detail.",
-    path: "assets/portfolio/red-dirt/product-performance.webp",
-    status: "In development",
-    available: false
+    path: "assets/portfolio/red-dirt/product-performance.png",
+    status: "Available",
+    available: true
   },
   {
-    title: "Inventory Management",
+    title: "Inventory and Reorder",
     description: "A manager-focused view of active stock, reorder needs, inventory health, category composition, and items below reorder thresholds.",
-    path: "assets/portfolio/red-dirt/inventory-management.webp",
-    status: "In development",
-    available: false
+    path: "assets/portfolio/red-dirt/inventory-reorder.png",
+    status: "Available",
+    available: true
   },
   {
     title: "Employee & Operations",
     description: "Sales, transactions, tips, average ticket size, hourly activity, and operational performance by employee.",
-    path: "assets/portfolio/red-dirt/employee-operations.webp",
-    status: "Planned",
-    available: false
+    path: "assets/portfolio/red-dirt/employee-operations.png",
+    status: "Available",
+    available: true
   },
   {
     title: "Purchasing & Vendors",
@@ -252,7 +252,7 @@ function setupContactForm() {
     contactEmail: "Please enter a valid email address.",
     contactService: "Please select the service you need.",
     contactDetails: "Please include a short description of your project.",
-    contactConsent: "Please confirm that Orahood CBS may contact you about this request."
+    contactConsent: "Please confirm that Orahood Custom Business Solutions may contact you about this request."
   };
 
   const showFieldState = (field) => {
@@ -313,7 +313,7 @@ function setupContactForm() {
         const error = document.querySelector(`#${field.id}Error`);
         if (error) error.textContent = "";
       });
-      status.textContent = "Your project request was sent. Orahood CBS will follow up as soon as possible.";
+      status.textContent = "Your project request was sent. Orahood Custom Business Solutions will follow up as soon as possible.";
       status.classList.add("status-success");
     } catch (error) {
       console.error("Contact form submission failed:", error);
