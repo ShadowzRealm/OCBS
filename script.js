@@ -4,7 +4,11 @@ const CONTACT_FORM_ENDPOINT = "https://formspree.io/f/xkodwbar";
 const SITE_CONFIG = {
   facebookUrl: "",
   linkedinUrl: "",
-  youtubeVideoId: ""
+  youtubeVideoId: "",
+  demoVideo: {
+    src: "assets/portfolio/red-dirt/video/red-dirt-operations-manager-demo.mp4",
+    poster: "assets/portfolio/red-dirt/operations/red-dirt-operations-dashboard.webp"
+  }
 };
 
 const SERVICES = [
@@ -62,20 +66,71 @@ const SERVICES = [
 // Set available to true only after the matching screenshot has been added to the repository.
 const PORTFOLIO_MEDIA = {
   database: {
-    title: "SQL data preview",
-    path: "assets/portfolio/red-dirt/sql-drinks-table.png",
-    alt: "SQL table preview showing drink records, prices, and active status",
-    caption: "SQL-ready table preview from the structured Red Dirt Sports Bar dataset.",
+    title: "SQLite schema preview",
+    path: "assets/portfolio/red-dirt/sqlite-database-schema.webp",
+    alt: "DB Browser for SQLite showing the red_dirt_operations.db table schema",
+    caption: "red_dirt_operations.db opened in DB Browser for SQLite, showing the operational schema used by the app.",
     available: true
   },
   desktop: {
-    title: "Application screenshot coming soon",
-    path: "assets/portfolio/red-dirt/tkinter-app.webp",
-    alt: "Tkinter desktop operations application connected to SQLite",
-    caption: "Local desktop interface connected directly to the SQLite database.",
-    available: false
+    title: "Red Dirt Operations Manager",
+    path: "assets/portfolio/red-dirt/operations/red-dirt-operations-dashboard.webp",
+    alt: "Red Dirt Operations Manager dashboard showing sales, recent transactions, and purchasing data",
+    caption: "Python Tkinter operations manager connected directly to the SQLite operational database.",
+    available: true
   }
 };
+
+const APPLICATION_SCREENSHOTS = [
+  {
+    title: "Operations Dashboard",
+    description: "Live KPI cards, latest available business date, recent transactions, purchase orders, and inventory status from the SQLite database.",
+    path: "assets/portfolio/red-dirt/operations/red-dirt-operations-dashboard.webp",
+    alt: "Red Dirt Operations Manager dashboard showing sales metrics, recent transactions, low-stock inventory, and purchase orders"
+  },
+  {
+    title: "Transaction Entry",
+    description: "Point-of-sale style workflow with employee selection, food and drink search, cart quantities, subtotal, tax, tip, payment method, and final total.",
+    path: "assets/portfolio/red-dirt/operations/red-dirt-operations-transactions.webp",
+    alt: "Red Dirt Operations Manager transaction entry screen showing menu search, cart items, payment method, and sale totals"
+  },
+  {
+    title: "Inventory Management",
+    description: "Inventory search, active filters, low-stock filtering, stock levels, reorder thresholds, and highlighted operational status.",
+    path: "assets/portfolio/red-dirt/operations/red-dirt-operations-inventory.webp",
+    alt: "Red Dirt Operations Manager inventory page showing searchable stock records, quantities, units, reorder levels, and low-stock filters"
+  },
+  {
+    title: "Inventory Adjustment",
+    description: "Ledger-backed manual adjustment fields with quantity change, reason, notes, current quantity, and item metadata.",
+    path: "assets/portfolio/red-dirt/operations/red-dirt-operations-inventory-adjustment.webp",
+    alt: "Red Dirt Operations Manager inventory adjustment interface showing selected item details and manual adjustment fields"
+  },
+  {
+    title: "Menu & Recipes",
+    description: "Food and drink menu records, prices, active status, recipe ingredients, inventory relationships, and recipe quantities.",
+    path: "assets/portfolio/red-dirt/operations/red-dirt-operations-menu-recipes.webp",
+    alt: "Red Dirt Operations Manager menu and recipes page showing recipe ingredients connected to inventory items"
+  },
+  {
+    title: "Purchasing",
+    description: "Vendor and purchase-order workflows with order dates, inventory items, quantities, totals, and receipt status.",
+    path: "assets/portfolio/red-dirt/operations/red-dirt-operations-purchasing.webp",
+    alt: "Red Dirt Operations Manager purchasing page showing purchase orders, vendors, inventory items, quantities, totals, and received status"
+  },
+  {
+    title: "Employees",
+    description: "Employee list, role information, active status, search/filter controls, and editable employee detail fields.",
+    path: "assets/portfolio/red-dirt/operations/red-dirt-operations-employees.webp",
+    alt: "Red Dirt Operations Manager employees page showing employee records, roles, active status, and employee detail fields"
+  },
+  {
+    title: "System Tools",
+    description: "Database connection status, integrity checks, foreign-key checks, backup tools, export tools, and application database information.",
+    path: "assets/portfolio/red-dirt/operations/red-dirt-operations-system.webp",
+    alt: "Red Dirt Operations Manager system page showing database status, backup tools, integrity checks, and CSV export controls"
+  }
+];
 
 const DASHBOARD_PAGES = [
   {
@@ -136,6 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupContactForm();
   renderPortfolioMedia();
   renderDashboardGallery();
+  renderApplicationGallery();
   renderVideo();
   setupLightbox();
   setCurrentYear();
@@ -381,9 +437,35 @@ function renderDashboardGallery() {
   }).join("");
 }
 
+function renderApplicationGallery() {
+  const target = document.querySelector("#applicationGallery");
+  if (!target) return;
+
+  target.innerHTML = APPLICATION_SCREENSHOTS.map((page) => `
+    <article class="app-shot-card">
+      <button class="app-shot-image media-trigger" type="button" data-lightbox-src="${escapeAttribute(page.path)}" data-lightbox-title="${escapeAttribute(page.title)}" data-lightbox-description="${escapeAttribute(page.description)}" aria-label="Enlarge ${escapeAttribute(page.alt)}">
+        <img src="${escapeAttribute(page.path)}" alt="${escapeAttribute(page.alt)}" loading="lazy" width="1600" height="900">
+      </button>
+      <div class="app-shot-copy">
+        <h3>${escapeHTML(page.title)}</h3>
+        <p>${escapeHTML(page.description)}</p>
+      </div>
+    </article>
+  `).join("");
+}
+
 function renderVideo() {
   const target = document.querySelector("#videoContainer");
   if (!target) return;
+
+  if (SITE_CONFIG.demoVideo?.src) {
+    target.innerHTML = `
+      <video class="portfolio-video" controls preload="metadata" poster="${escapeAttribute(SITE_CONFIG.demoVideo.poster)}">
+        <source src="${escapeAttribute(SITE_CONFIG.demoVideo.src)}" type="video/mp4">
+        Your browser does not support the HTML5 video player. Please contact Orahood Custom Business Solutions for the project walkthrough.
+      </video>`;
+    return;
+  }
 
   if (!SITE_CONFIG.youtubeVideoId) {
     target.innerHTML = `
