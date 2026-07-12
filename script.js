@@ -7,7 +7,8 @@ const SITE_CONFIG = {
   youtubeVideoId: "",
   demoVideo: {
     src: "assets/portfolio/red-dirt/video/red-dirt-operations-manager-demo.mp4",
-    poster: "assets/portfolio/red-dirt/operations/red-dirt-operations-dashboard.webp"
+    poster: "assets/portfolio/red-dirt/operations/red-dirt-operations-dashboard.webp",
+    captions: "assets/portfolio/red-dirt/video/red-dirt-operations-manager-demo.vtt"
   }
 };
 
@@ -459,9 +460,13 @@ function renderVideo() {
   if (!target) return;
 
   if (SITE_CONFIG.demoVideo?.src) {
+    const captionsTrack = SITE_CONFIG.demoVideo.captions
+      ? `<track kind="captions" src="${escapeAttribute(SITE_CONFIG.demoVideo.captions)}" srclang="en" label="English" default>`
+      : "";
     target.innerHTML = `
       <video class="portfolio-video" controls preload="metadata" poster="${escapeAttribute(SITE_CONFIG.demoVideo.poster)}">
         <source src="${escapeAttribute(SITE_CONFIG.demoVideo.src)}" type="video/mp4">
+        ${captionsTrack}
         Your browser does not support the HTML5 video player. Please contact Orahood Custom Business Solutions for the project walkthrough.
       </video>`;
     return;
