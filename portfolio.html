@@ -80,7 +80,7 @@
         <div class="case-hero-grid" aria-hidden="true"></div>
         <div class="case-hero-product" aria-hidden="true">
           <img class="case-hero-screen case-hero-screen-main" src="assets/portfolio/red-dirt/operations/red-dirt-operations-dashboard.webp" alt="" width="1595" height="900">
-          <img class="case-hero-screen case-hero-screen-secondary" src="assets/portfolio/red-dirt/power-bi-report-canvas-tight.webp" alt="" width="752" height="422">
+          <img class="case-hero-screen case-hero-screen-secondary" src="assets/portfolio/red-dirt/power-bi-dashboard-clean.webp" alt="" width="1600" height="900">
         </div>
         <div class="section-shell case-hero-shell">
           <div class="section-line on-dark"><span>Featured portfolio project</span></div>
@@ -107,6 +107,35 @@
             <div><dt>Deployment model</dt><dd>Local-first</dd></div>
             <div><dt>Purpose</dt><dd>Transaction entry, inventory, menu recipes, purchasing, employee records, backups, exports, and operational reporting</dd></div>
           </dl>
+        </div>
+      </section>
+
+      <section class="product-positioning-section" aria-labelledby="productPositioningHeading">
+        <div class="section-shell product-positioning-shell">
+          <div class="case-section-heading">
+            <div class="section-line"><span>Product position</span></div>
+            <h2 id="productPositioningHeading">A portfolio case study shaped like a product a business could buy.</h2>
+          </div>
+          <div class="product-positioning-copy">
+            <p>Red Dirt is fictional, but the system is presented the way a real small-business operations product should be evaluated: by workflow fit, data structure, reporting usefulness, maintainability, and the quality of the buyer-facing evidence.</p>
+            <div class="product-proof-grid" aria-label="Product positioning proof points">
+              <article>
+                <span>01</span>
+                <h3>Operational software</h3>
+                <p>A local desktop app handles the workflows managers would repeat every day.</p>
+              </article>
+              <article>
+                <span>02</span>
+                <h3>Auditable data layer</h3>
+                <p>The SQLite model keeps the operational record inspectable and portable.</p>
+              </article>
+              <article>
+                <span>03</span>
+                <h3>Decision reporting</h3>
+                <p>Power BI pages turn the same business story into executive and operational views.</p>
+              </article>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -185,7 +214,7 @@
           <div class="case-section-heading gallery-heading">
             <div>
               <div class="section-line on-dark"><span>Source stack</span></div>
-              <h2 id="sourceStackHeading">The working files behind the showcase.</h2>
+              <h2 id="sourceStackHeading">The working files behind the product story.</h2>
             </div>
           </div>
           <div class="source-product-grid">
@@ -200,23 +229,23 @@
               </div>
             </article>
             <article class="source-product-card">
-              <button class="source-product-media media-trigger" type="button" data-lightbox-src="assets/portfolio/red-dirt/sqlite-database-schema.webp" data-lightbox-title="SQLite database schema" data-lightbox-description="red_dirt_operations.db opened in DB Browser for SQLite." aria-label="Enlarge SQLite database schema screenshot">
-                <img src="assets/portfolio/red-dirt/sqlite-database-schema.webp" alt="DB Browser for SQLite showing the red_dirt_operations.db table schema" loading="lazy" width="1083" height="716">
+              <button class="source-product-media media-trigger" type="button" data-lightbox-src="assets/portfolio/red-dirt/sqlite-database-overview.webp" data-lightbox-title="SQLite operating data model" data-lightbox-description="Source-backed overview generated from red_dirt_operations.db." aria-label="Enlarge SQLite operating data model overview">
+                <img src="assets/portfolio/red-dirt/sqlite-database-overview.webp" alt="SQLite operational database overview showing verified table counts, schema rows, and recent transaction records" loading="lazy" width="1600" height="1000">
               </button>
               <div class="source-product-copy">
                 <span>SQLite database</span>
-                <h3>Structured source of truth</h3>
-                <p>Transactions, line items, inventory, recipes, vendors, purchase orders, events, exceptions, and employees are stored relationally.</p>
+                <h3>Inspectable operating model</h3>
+                <p>Verified table counts, schema structure, key relationships, and recent records are summarized from the real local database.</p>
               </div>
             </article>
             <article class="source-product-card">
-              <button class="source-product-media media-trigger" type="button" data-lightbox-src="assets/portfolio/red-dirt/power-bi-report-canvas-tight.webp" data-lightbox-title="Power BI report file" data-lightbox-description="bar_example_dashboard.pbix opened in Power BI Desktop." aria-label="Enlarge Power BI report screenshot">
-                <img src="assets/portfolio/red-dirt/power-bi-report-canvas-tight.webp" alt="Power BI Desktop report page showing Red Dirt financial trends from the PBIX file" loading="lazy" width="752" height="422">
+              <button class="source-product-media media-trigger" type="button" data-lightbox-src="assets/portfolio/red-dirt/power-bi-dashboard-clean.webp" data-lightbox-title="Power BI reporting suite" data-lightbox-description="Clean product view of the Power BI Financial Trends report page from bar_example_dashboard.pbix." aria-label="Enlarge Power BI reporting suite screenshot">
+                <img src="assets/portfolio/red-dirt/power-bi-dashboard-clean.webp" alt="Power BI Financial Trends report page from the Red Dirt reporting suite" loading="lazy" width="1600" height="900">
               </button>
               <div class="source-product-copy">
                 <span>Power BI dashboard</span>
-                <h3>Management reporting</h3>
-                <p>Seven report pages turn operating records into executive, product, inventory, vendor, employee, and financial views.</p>
+                <h3>Executive-ready reporting</h3>
+                <p>The report file is presented as a polished product surface, while preserving the actual dashboard values and layout.</p>
               </div>
             </article>
           </div>
@@ -226,13 +255,13 @@
       <section class="case-media-section database-section" aria-labelledby="databaseHeading">
         <div class="section-shell case-two-column">
           <div class="case-section-heading">
-            <div class="section-line"><span>SQLite source</span></div>
-            <h2 id="databaseHeading">A local database that can be inspected, backed up, and reported from.</h2>
-            <p>The SQLite layer is structured for day-to-day operations and reporting, connecting transactions, products, inventory, vendors, purchase orders, inventory movement, and employee records.</p>
+            <div class="section-line"><span>SQLite data product</span></div>
+            <h2 id="databaseHeading">A local database that makes the operating system inspectable.</h2>
+            <p>The SQLite layer is structured for day-to-day operations and reporting. The public visual is generated from the real database so business readers can understand the model without opening a developer tool.</p>
             <ul class="detail-list">
-              <li>DB Browser schema screenshot captured from red_dirt_operations.db</li>
-              <li>Money stored consistently in cents</li>
-              <li>SQLite integrity check passes with no foreign-key violations</li>
+              <li>Source-backed database overview generated from red_dirt_operations.db</li>
+              <li>15 business tables with verified row counts and schema coverage</li>
+              <li>Money stored consistently in cents; integrity checks pass</li>
             </ul>
           </div>
           <div data-portfolio-media="database"></div>
@@ -244,9 +273,9 @@
           <div class="case-section-heading gallery-heading">
             <div>
               <div class="section-line on-dark"><span>Dashboard gallery</span></div>
-              <h2 id="dashboardHeading">Power BI Reporting Suite</h2>
+              <h2 id="dashboardHeading">Seven report pages built for management decisions.</h2>
             </div>
-            <p>Seven focused reporting pages move from executive-level performance to the operational detail needed for inventory, staffing, purchasing, and financial review.</p>
+            <p>The reporting layer translates the operating model into executive, product, inventory, vendor, employee, and financial views. The dashboard assets are treated as product evidence, not decorative screenshots.</p>
           </div>
           <div id="dashboardGallery" class="dashboard-gallery"></div>
         </div>
@@ -282,7 +311,7 @@
           <div class="case-section-heading">
             <div class="section-line"><span>Video demonstration</span></div>
             <h2 id="walkthroughHeading">Project Walkthrough</h2>
-            <p>A silent walkthrough demonstrates the actual desktop application screens, database-backed navigation, and the local architecture that supports the Power BI reporting suite.</p>
+            <p>A music-backed walkthrough demonstrates the desktop application, the source-backed SQLite model, and the Power BI reporting layer without fake narration or external caption tracks.</p>
           </div>
           <div id="videoContainer" class="video-container"></div>
         </div>

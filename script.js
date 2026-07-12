@@ -7,8 +7,7 @@ const SITE_CONFIG = {
   youtubeVideoId: "",
   demoVideo: {
     src: "assets/portfolio/red-dirt/video/red-dirt-operations-manager-demo.mp4",
-    poster: "assets/portfolio/red-dirt/operations/red-dirt-operations-dashboard.webp",
-    captions: "assets/portfolio/red-dirt/video/red-dirt-operations-manager-demo.vtt"
+    poster: "assets/portfolio/red-dirt/operations/red-dirt-operations-dashboard.webp"
   }
 };
 
@@ -67,10 +66,10 @@ const SERVICES = [
 // Set available to true only after the matching screenshot has been added to the repository.
 const PORTFOLIO_MEDIA = {
   database: {
-    title: "SQLite schema preview",
-    path: "assets/portfolio/red-dirt/sqlite-database-schema.webp",
-    alt: "DB Browser for SQLite showing the red_dirt_operations.db table schema",
-    caption: "red_dirt_operations.db opened in DB Browser for SQLite, showing the operational schema used by the app.",
+    title: "SQLite operating data model",
+    path: "assets/portfolio/red-dirt/sqlite-database-overview.webp",
+    alt: "SQLite operational database overview showing verified table counts, schema rows, and recent transaction records",
+    caption: "Source-backed overview generated from red_dirt_operations.db, showing the local operating data model behind the app.",
     available: true
   },
   desktop: {
@@ -460,13 +459,9 @@ function renderVideo() {
   if (!target) return;
 
   if (SITE_CONFIG.demoVideo?.src) {
-    const captionsTrack = SITE_CONFIG.demoVideo.captions
-      ? `<track kind="captions" src="${escapeAttribute(SITE_CONFIG.demoVideo.captions)}" srclang="en" label="English" default>`
-      : "";
     target.innerHTML = `
       <video class="portfolio-video" controls preload="metadata" poster="${escapeAttribute(SITE_CONFIG.demoVideo.poster)}">
         <source src="${escapeAttribute(SITE_CONFIG.demoVideo.src)}" type="video/mp4">
-        ${captionsTrack}
         Your browser does not support the HTML5 video player. Please contact Orahood Custom Business Solutions for the project walkthrough.
       </video>`;
     return;
