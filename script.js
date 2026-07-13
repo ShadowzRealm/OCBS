@@ -282,13 +282,18 @@ function renderSocialLinks() {
   const networks = [
     { name: "Facebook", icon: "icon-facebook", url: SITE_CONFIG.facebookUrl },
     { name: "LinkedIn", icon: "icon-linkedin", url: SITE_CONFIG.linkedinUrl }
-  ];
+  ].filter((network) => network.url);
+
+  const wrapper = target.closest(".social-connect");
+  if (!networks.length) {
+    if (wrapper) wrapper.hidden = true;
+    return;
+  }
+
+  if (wrapper) wrapper.hidden = false;
 
   target.innerHTML = networks.map((network) => {
-    const inner = `<svg aria-hidden="true"><use href="#${network.icon}"></use></svg><span>${network.name}<small>${network.url ? "Visit profile" : "Coming soon"}</small></span>`;
-    if (!network.url) {
-      return `<button class="social-button" type="button" aria-disabled="true">${inner}</button>`;
-    }
+    const inner = `<svg aria-hidden="true"><use href="#${network.icon}"></use></svg><span>${network.name}<small>Visit profile</small></span>`;
     return `<a class="social-button" href="${escapeAttribute(network.url)}" target="_blank" rel="noopener noreferrer">${inner}</a>`;
   }).join("");
 }
