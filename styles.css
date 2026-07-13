@@ -300,7 +300,7 @@ button:disabled {
 }
 
 .button-secondary {
-  color: var(--gold);
+  color: var(--gold-text);
   background: var(--white);
   border-color: var(--gold);
 }
@@ -2645,7 +2645,7 @@ textarea:focus {
 }
 
 .home-process-steps span {
-  color: rgba(165, 0, 5, 0.42);
+  color: rgba(120, 0, 4, 0.78);
   font-family: var(--serif);
   font-size: 2rem;
   font-weight: 800;
@@ -3515,13 +3515,13 @@ label span em {
   max-width: 620px;
 }
 
-.case-hero h1 {
+.case-hero-title {
   max-width: 860px;
   color: var(--white);
   font-size: clamp(2.8rem, 5.6vw, 5.1rem);
 }
 
-.case-hero h1::first-line {
+.case-hero-title::first-line {
   color: var(--white);
 }
 
@@ -4796,6 +4796,27 @@ label span em {
   }
 
   .technology-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .assessment-shell,
+  .support-shell,
+  .case-facts-shell,
+  .assessment-callout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 780px) {
+  .process-steps,
+  .support-grid,
+  .home-process-steps,
+  .trust-grid,
+  .portfolio-status-grid,
+  .case-facts-grid,
+  .positioning-grid {
     grid-template-columns: 1fr;
   }
 }

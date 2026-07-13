@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -6,16 +6,16 @@
     <title>Portfolio | Orahood Custom Business Solutions</title>
     <meta name="description" content="Explore OCBS portfolio systems, including completed synthetic demonstrations, active development projects, and planned concepts.">
     <meta name="theme-color" content="#a50005">
-    <link rel="canonical" href="https://shadowzrealm.github.io/OCBS/portfolio.html">
+    <link rel="canonical" href="https://orahoodcbs.com/portfolio.html">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Portfolio | Orahood Custom Business Solutions">
     <meta property="og:description" content="Completed, active, and planned portfolio systems showing local-first business operations, reporting, and workflow thinking.">
-    <meta property="og:url" content="https://shadowzrealm.github.io/OCBS/portfolio.html">
-    <meta property="og:image" content="https://shadowzrealm.github.io/OCBS/assets/portfolio/red-dirt/social-preview.webp">
+    <meta property="og:url" content="https://orahoodcbs.com/portfolio.html">
+    <meta property="og:image" content="https://orahoodcbs.com/assets/portfolio/red-dirt/social-preview.webp">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Portfolio | Orahood Custom Business Solutions">
     <meta name="twitter:description" content="Completed, active, and planned portfolio systems showing local-first business operations, reporting, and workflow thinking.">
-    <meta name="twitter:image" content="https://shadowzrealm.github.io/OCBS/assets/portfolio/red-dirt/social-preview.webp">
+    <meta name="twitter:image" content="https://orahoodcbs.com/assets/portfolio/red-dirt/social-preview.webp">
     <link rel="icon" type="image/png" href="./orahood-logo.png">
     <link rel="stylesheet" href="./styles.css?v=20260713-launch">
   </head>
@@ -84,7 +84,7 @@
             <h1 id="portfolioIndexTitle">Proof of complete business-system thinking.</h1>
             <p>These projects demonstrate how OCBS thinks about source data, workflow tools, reporting, ownership, and maintainability. Demo and conceptual projects are labeled honestly so they are not mistaken for paid client work.</p>
           </div>
-          <div class="portfolio-status-grid" aria-label="Portfolio project status">
+          <div class="portfolio-status-grid" role="group" aria-label="Portfolio project status">
             <article class="portfolio-status-card is-complete">
               <span class="status-badge status-complete">Completed demo</span>
               <h2>Red Dirt Sports Bar</h2>
@@ -128,7 +128,7 @@
         </div>
         <div class="section-shell case-hero-shell">
           <div class="section-line on-dark"><span>Completed synthetic demo</span></div>
-          <h1>Red Dirt Sports Bar <span class="accent-word">Operations System</span></h1>
+          <h2 class="case-hero-title">Red Dirt Sports Bar <span class="accent-word">Operations System</span></h2>
           <p>A complete local business-management and reporting ecosystem built for a fictional sports bar using a realistic synthetic dataset. The project combines a Python desktop application, a relational SQLite operational database, and a seven-page Power BI reporting suite.</p>
           <div class="case-hero-actions">
             <a class="button button-gold" href="#projectGallery">Explore the project</a>
@@ -182,7 +182,7 @@
           </div>
           <div class="product-positioning-copy">
             <p>Red Dirt is fictional, but the system is presented the way a real small-business operations product should be evaluated: by workflow fit, data structure, reporting usefulness, maintainability, and the quality of the buyer-facing evidence.</p>
-            <div class="product-proof-grid" aria-label="Product positioning proof points">
+            <div class="product-proof-grid" role="group" aria-label="Product positioning proof points">
               <article>
                 <span>01</span>
                 <h3>Operational software</h3>
@@ -224,7 +224,7 @@
             <h2 id="architectureHeading">From daily entry to useful decisions.</h2>
             <p>The system keeps operational work straightforward and reporting connected, without adding cloud infrastructure where it is not needed.</p>
           </div>
-          <div class="architecture-flow" aria-label="Tkinter Desktop App connects to SQLite Database, which connects to Power BI Dashboard">
+          <div class="architecture-flow" role="group" aria-label="Tkinter Desktop App connects to SQLite Database, which connects to Power BI Dashboard">
             <article>
               <svg aria-hidden="true"><use href="#icon-desktop"></use></svg>
               <span>01</span>
@@ -429,10 +429,10 @@
         <button class="lightbox-close" type="button" aria-label="Close image">
           <svg aria-hidden="true"><use href="#icon-close"></use></svg>
         </button>
-        <img id="lightboxImage" alt="">
+        <img id="lightboxImage" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="">
         <div class="lightbox-caption">
-          <h2 id="lightboxTitle"></h2>
-          <p id="lightboxDescription"></p>
+          <h2 id="lightboxTitle">Portfolio image</h2>
+          <p id="lightboxDescription">Selected portfolio image details.</p>
         </div>
       </div>
     </dialog>
@@ -465,6 +465,6 @@
       </div>
     </footer>
 
-    <script src="./script.js?v=20260713-launch"></script>
+    <script src="./script.js?v=20260713-launch" defer></script>
   </body>
 </html>

@@ -545,9 +545,11 @@ function scrollToHashTarget() {
   if (!id) return;
   const target = document.getElementById(id);
   if (!target) return;
-  requestAnimationFrame(() => {
-    target.scrollIntoView({ block: "start" });
-  });
+  const scroll = () => target.scrollIntoView({ block: "start" });
+  requestAnimationFrame(scroll);
+  window.addEventListener("load", () => requestAnimationFrame(scroll), { once: true });
+  window.setTimeout(scroll, 350);
+  window.setTimeout(scroll, 900);
 }
 
 function escapeHTML(value) {
