@@ -3,7 +3,8 @@ const CONTACT_FORM_ENDPOINT = "https://formspree.io/f/xkodwbar";
 
 const SITE_CONFIG = {
   facebookUrl: "https://www.facebook.com/share/1DryYraQMj/?mibextid=wwXIfr",
-  linkedinUrl: "",
+  linkedinUrl: "https://www.linkedin.com/in/dalton-orahood-7054731a5",
+  youtubeUrl: "https://youtube.com/@orahoodcbs",
   youtubeVideoId: "",
   demoVideo: {
     src: "assets/portfolio/red-dirt/video/red-dirt-operations-manager-demo.mp4",
@@ -282,8 +283,9 @@ function renderSocialLinks() {
   if (!target) return;
 
   const networks = [
-    { name: "Facebook", icon: "icon-facebook", url: SITE_CONFIG.facebookUrl },
-    { name: "LinkedIn", icon: "icon-linkedin", url: SITE_CONFIG.linkedinUrl }
+    { name: "Facebook", icon: "icon-facebook", url: SITE_CONFIG.facebookUrl, cta: "Visit profile" },
+    { name: "YouTube", icon: "icon-youtube", url: SITE_CONFIG.youtubeUrl, cta: "Visit channel" },
+    { name: "LinkedIn", icon: "icon-linkedin", url: SITE_CONFIG.linkedinUrl, cta: "Visit profile" }
   ].filter((network) => network.url);
 
   const wrapper = target.closest(".social-connect");
@@ -295,7 +297,7 @@ function renderSocialLinks() {
   if (wrapper) wrapper.hidden = false;
 
   target.innerHTML = networks.map((network) => {
-    const inner = `<svg aria-hidden="true"><use href="#${network.icon}"></use></svg><span>${network.name}<small>Visit profile</small></span>`;
+    const inner = `<svg aria-hidden="true"><use href="#${network.icon}"></use></svg><span>${network.name}<small>${escapeHTML(network.cta)}</small></span>`;
     return `<a class="social-button" href="${escapeAttribute(network.url)}" target="_blank" rel="noopener noreferrer">${inner}</a>`;
   }).join("");
 }
