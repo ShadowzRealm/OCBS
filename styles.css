@@ -1,3 +1,16 @@
+/*
+ * Shared design system for every page in the multi-page OCBS website.
+ *
+ * Editing map:
+ *   - Custom properties below control global color, type, shadow, and header size.
+ *   - Base elements and accessibility helpers establish page-wide behavior.
+ *   - Reusable navigation, layout, card, gallery, form, and footer components follow.
+ *   - Page-specific sections come after shared components.
+ *   - Media queries near the bottom own responsive behavior.
+ *
+ * Search all HTML pages and script.js before renaming a selector. JavaScript relies
+ * on several IDs, classes, and data attributes as a public DOM contract.
+ */
 :root {
   --white: #ffffff;
   --paper: #f8f8f7;
@@ -2256,6 +2269,736 @@ textarea:focus {
   .admin-main {
     padding: 20px;
   }
+}
+
+/* 2026 portfolio expansion: startup polish and product-specific case-study worlds. */
+.site-header {
+  backdrop-filter: blur(18px) saturate(1.08);
+  box-shadow: 0 1px 0 rgba(17, 24, 39, 0.06), 0 14px 40px rgba(17, 24, 39, 0.05);
+}
+
+.button,
+.header-cta {
+  border-radius: 5px;
+  box-shadow: 0 10px 28px rgba(17, 24, 39, 0.1);
+}
+
+.portfolio-selector-section {
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.97), rgba(247, 249, 251, 0.9)),
+    radial-gradient(circle at 82% 10%, rgba(35, 116, 132, 0.14), transparent 34%),
+    var(--paper);
+}
+
+.project-showcase-card {
+  border-radius: 8px;
+}
+
+.project-showcase-card.is-sentinel {
+  color: #eafaff;
+  background:
+    linear-gradient(135deg, rgba(5, 14, 22, 0.99), rgba(13, 28, 39, 0.97)),
+    #061018;
+  border-color: rgba(55, 182, 201, 0.42);
+  box-shadow: 0 26px 76px rgba(5, 20, 30, 0.2);
+}
+
+.project-showcase-card.is-sentinel .project-showcase-media {
+  background: #040b12;
+}
+
+.project-showcase-card.is-sentinel .project-showcase-content h2,
+.project-showcase-card.is-sentinel .status-badge {
+  color: #eafaff;
+}
+
+.project-showcase-card.is-sentinel .project-showcase-content p,
+.project-showcase-card.is-sentinel .project-meta-list li {
+  color: rgba(220, 242, 247, 0.72);
+}
+
+.project-showcase-card.is-sentinel .project-meta-list svg {
+  color: #47c9dd;
+}
+
+.project-showcase-card.is-sentinel .status-badge {
+  border-color: rgba(71, 201, 221, 0.5);
+}
+
+.project-showcase-card.is-catalyst {
+  color: #102a43;
+  background: linear-gradient(135deg, #ffffff, #eef6f7);
+  border-color: rgba(0, 124, 131, 0.34);
+  box-shadow: 0 24px 68px rgba(16, 42, 67, 0.12);
+}
+
+.project-showcase-card.is-catalyst .project-showcase-media {
+  background: linear-gradient(145deg, #e6f1f3, #ffffff);
+}
+
+.project-showcase-card.is-catalyst .project-showcase-content h2 {
+  color: #102a43;
+}
+
+.project-showcase-card.is-catalyst .project-meta-list svg {
+  color: #007c83;
+}
+
+.button-sentinel,
+.button-catalyst {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border: 1px solid;
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.button-sentinel {
+  color: #031015;
+  background: linear-gradient(180deg, #68e8f4, #25aabd);
+  border-color: #75f0fa;
+  box-shadow: 0 0 0 1px rgba(55, 182, 201, 0.18), 0 12px 36px rgba(38, 190, 211, 0.26);
+}
+
+.button-sentinel:hover {
+  background: linear-gradient(180deg, #8bf4fb, #37b6c9);
+}
+
+.button-catalyst {
+  background: #007c83;
+  border-color: #007c83;
+}
+
+.button-catalyst:hover {
+  background: #006d75;
+  border-color: #006d75;
+}
+
+/* Sentinel: cyberpunk-noir without sacrificing professional case-study readability. */
+.sentinel-detail-page {
+  color: #d9e8ed;
+  background: #061018;
+}
+
+.sentinel-detail-page .site-header {
+  background: rgba(5, 14, 22, 0.9);
+  border-bottom-color: rgba(55, 182, 201, 0.3);
+}
+
+.sentinel-detail-page .brand-name,
+.sentinel-detail-page .brand-subtitle,
+.sentinel-detail-page .primary-nav a {
+  color: #e8f8fb;
+}
+
+.sentinel-detail-page .brand-subtitle {
+  color: #7fc5d0;
+}
+
+.sentinel-detail-page .brand-mark,
+.sentinel-detail-page .footer-brand .brand-mark {
+  filter: saturate(0.65) hue-rotate(128deg) brightness(1.12);
+}
+
+.sentinel-detail-page .primary-nav a::after {
+  background: #47c9dd;
+  box-shadow: 0 0 10px rgba(71, 201, 221, 0.8);
+}
+
+.sentinel-detail-page .header-cta {
+  color: #041117;
+  background: #55d9e8;
+  border-color: #6bebf6;
+}
+
+.sentinel-detail-page .nav-toggle {
+  color: #e8f8fb;
+  background: rgba(55, 182, 201, 0.08);
+  border-color: rgba(71, 201, 221, 0.36);
+}
+
+.sentinel-detail-page .nav-toggle span {
+  background: currentColor;
+}
+
+.sentinel-detail-page .primary-nav.open {
+  background: rgba(5, 14, 22, 0.98);
+  border-color: rgba(55, 182, 201, 0.32);
+}
+
+.sentinel-hero {
+  min-height: calc(100vh - 76px);
+  background:
+    radial-gradient(circle at 18% 18%, rgba(34, 147, 168, 0.15), transparent 26%),
+    radial-gradient(circle at 78% 14%, rgba(187, 43, 151, 0.12), transparent 26%),
+    linear-gradient(115deg, #03090f 0%, #07141d 48%, #101526 100%);
+}
+
+.sentinel-hero::before {
+  background: linear-gradient(90deg, transparent, rgba(71, 201, 221, 0.9), rgba(190, 58, 167, 0.6), transparent);
+}
+
+.sentinel-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.22;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(55, 182, 201, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(55, 182, 201, 0.1) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: linear-gradient(to bottom, transparent, #000 22%, transparent 92%);
+}
+
+.sentinel-hero .ember-hero-copy h1,
+.sentinel-hero .ember-hero-copy h1::first-line {
+  color: #effcff;
+  text-shadow: 0 0 34px rgba(71, 201, 221, 0.1);
+}
+
+.sentinel-hero .ember-hero-copy h1 span {
+  color: #5ad7e7;
+}
+
+.sentinel-hero .ember-hero-copy > p {
+  color: rgba(219, 239, 244, 0.75);
+}
+
+.sentinel-hero .project-back-link:hover,
+.sentinel-detail-page .section-line span,
+.sentinel-detail-page .ember-panel-grid span,
+.sentinel-detail-page .ember-metric-list dt {
+  color: #5ad7e7;
+}
+
+.sentinel-hero .ember-hero-media {
+  border-color: rgba(71, 201, 221, 0.58);
+  box-shadow: 0 0 0 1px rgba(192, 55, 169, 0.12), 0 34px 100px rgba(0, 0, 0, 0.72), 0 0 52px rgba(45, 178, 198, 0.12);
+}
+
+.sentinel-summary-section,
+.sentinel-app-section,
+.sentinel-gallery-section,
+.sentinel-walkthrough,
+.sentinel-facts-section,
+.sentinel-detail-page .technology-section {
+  color: #d8e7eb;
+  background: #07121a;
+}
+
+.sentinel-app-section,
+.sentinel-facts-section {
+  background: #091720;
+}
+
+.sentinel-detail-page .case-section-heading h2,
+.sentinel-detail-page .gallery-heading h2,
+.sentinel-detail-page .app-shot-copy h3,
+.sentinel-detail-page .ember-architecture-rail h3,
+.sentinel-detail-page .ember-panel-grid h3,
+.sentinel-detail-page .technology-section h2,
+.sentinel-detail-page .summary-grid dd {
+  color: #eefbfe;
+}
+
+.sentinel-detail-page .case-section-heading p,
+.sentinel-detail-page .gallery-heading > p,
+.sentinel-detail-page .app-shot-copy p,
+.sentinel-detail-page .ember-architecture-rail p,
+.sentinel-detail-page .ember-panel-grid p,
+.sentinel-detail-page .summary-grid dd,
+.sentinel-detail-page .ember-facts-grid dd {
+  color: #91aab3;
+}
+
+.sentinel-detail-page .summary-grid,
+.sentinel-detail-page .summary-grid div,
+.sentinel-detail-page .ember-architecture-rail article,
+.sentinel-detail-page .ember-panel-grid article,
+.sentinel-detail-page .app-shot-card,
+.sentinel-detail-page .ember-facts-grid div {
+  border-color: rgba(63, 149, 165, 0.28);
+  background: linear-gradient(180deg, rgba(14, 31, 41, 0.98), rgba(7, 20, 29, 0.98));
+}
+
+.sentinel-detail-page .summary-grid dt,
+.sentinel-detail-page .ember-facts-grid dt {
+  color: #55d9e8;
+}
+
+.sentinel-detail-page .ember-architecture-rail svg {
+  color: #55d9e8;
+}
+
+.sentinel-detail-page .app-shot-image {
+  border-bottom: 1px solid rgba(71, 201, 221, 0.24);
+}
+
+.sentinel-security-section {
+  background:
+    radial-gradient(circle at 78% 24%, rgba(183, 42, 153, 0.15), transparent 30%),
+    linear-gradient(135deg, #030b11, #0a202b);
+}
+
+.sentinel-detail-page .ember-metric-list div {
+  border-color: rgba(71, 201, 221, 0.34);
+  background: rgba(71, 201, 221, 0.04);
+}
+
+.sentinel-detail-page .technology-list li {
+  color: #b9d8df;
+  border-color: rgba(71, 201, 221, 0.26);
+  background: #0c1c26;
+}
+
+.sentinel-cta {
+  background:
+    radial-gradient(circle at 82% 20%, rgba(180, 43, 151, 0.2), transparent 30%),
+    linear-gradient(90deg, #030a10, #0a2530);
+}
+
+/* Catalyst: clean, rigorous laboratory operations palette. */
+.catalyst-detail-page {
+  color: #1f2933;
+  background: #eef3f5;
+}
+
+.catalyst-detail-page .site-header {
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom-color: rgba(16, 42, 67, 0.12);
+}
+
+.catalyst-detail-page .primary-nav a::after {
+  background: #007c83;
+}
+
+.catalyst-detail-page .header-cta {
+  background: #007c83;
+  border-color: #007c83;
+}
+
+.catalyst-hero {
+  min-height: calc(100vh - 76px);
+  color: #f7fbfc;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(44, 177, 188, 0.2), transparent 28%),
+    linear-gradient(118deg, #0b2135 0%, #102a43 54%, #174d59 100%);
+}
+
+.catalyst-hero::before {
+  background: linear-gradient(90deg, transparent, rgba(44, 177, 188, 0.86), transparent);
+}
+
+.catalyst-molecule {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.34;
+  background:
+    radial-gradient(circle at 8% 72%, rgba(134, 232, 223, 0.5) 0 3px, transparent 4px),
+    radial-gradient(circle at 17% 64%, rgba(134, 232, 223, 0.4) 0 5px, transparent 6px),
+    radial-gradient(circle at 24% 78%, rgba(134, 232, 223, 0.38) 0 4px, transparent 5px);
+}
+
+.catalyst-hero .ember-hero-copy h1,
+.catalyst-hero .ember-hero-copy h1::first-line {
+  color: #f7fbfc;
+}
+
+.catalyst-hero .ember-hero-copy h1 span,
+.catalyst-hero .project-back-link:hover,
+.catalyst-detail-page .section-line span,
+.catalyst-detail-page .ember-panel-grid span,
+.catalyst-detail-page .ember-metric-list dt {
+  color: #5ed5dc;
+}
+
+.catalyst-hero .ember-hero-copy > p {
+  color: rgba(231, 244, 247, 0.8);
+}
+
+.catalyst-hero .ember-hero-media {
+  border-color: rgba(94, 213, 220, 0.5);
+  background: #e9f0f2;
+  box-shadow: 0 34px 90px rgba(2, 15, 27, 0.42);
+}
+
+.catalyst-summary-section,
+.catalyst-gallery-section,
+.catalyst-walkthrough,
+.catalyst-detail-page .technology-section {
+  background: #fff;
+}
+
+.catalyst-app-section,
+.catalyst-facts-section {
+  background: #edf3f5;
+}
+
+.catalyst-detail-page .case-section-heading h2,
+.catalyst-detail-page .gallery-heading h2,
+.catalyst-detail-page .ember-architecture-rail h3,
+.catalyst-detail-page .ember-panel-grid h3,
+.catalyst-detail-page .app-shot-copy h3,
+.catalyst-detail-page .summary-grid dd {
+  color: #102a43;
+}
+
+.catalyst-detail-page .ember-architecture-rail article,
+.catalyst-detail-page .ember-panel-grid article,
+.catalyst-detail-page .ember-facts-grid div,
+.catalyst-detail-page .app-shot-card {
+  border-color: rgba(0, 124, 131, 0.22);
+  background: #fff;
+  box-shadow: 0 16px 42px rgba(16, 42, 67, 0.06);
+}
+
+.catalyst-detail-page .ember-architecture-rail svg,
+.catalyst-detail-page .summary-grid dt,
+.catalyst-detail-page .ember-facts-grid dt {
+  color: #007c83;
+}
+
+.catalyst-application-gallery .app-shot-image img {
+  object-fit: cover;
+}
+
+.catalyst-roadmap-section {
+  background:
+    radial-gradient(circle at 86% 20%, rgba(44, 177, 188, 0.14), transparent 30%),
+    linear-gradient(135deg, #0c2337, #153e52);
+}
+
+.catalyst-detail-page .ember-metric-list div {
+  border-color: rgba(94, 213, 220, 0.3);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.catalyst-detail-page .technology-list li {
+  color: #243b53;
+  border-color: rgba(0, 124, 131, 0.22);
+  background: #f4f8f9;
+}
+
+.catalyst-cta {
+  background: linear-gradient(100deg, #0d2a40, #08747a);
+}
+
+/* Ember & Oak: stronger leather, brass, smoke, and lounge atmosphere. */
+.ember-detail-page .ember-hero {
+  background:
+    radial-gradient(ellipse at 82% 18%, rgba(184, 111, 42, 0.22), transparent 34%),
+    radial-gradient(ellipse at 68% 82%, rgba(255, 244, 222, 0.06), transparent 36%),
+    linear-gradient(102deg, #0b0705 0%, #211108 52%, #4c2710 100%);
+}
+
+.ember-detail-page .ember-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.42;
+  background:
+    repeating-linear-gradient(96deg, transparent 0 58px, rgba(255, 255, 255, 0.016) 59px 60px),
+    radial-gradient(ellipse at 74% 12%, rgba(255, 246, 227, 0.1), transparent 26%);
+}
+
+.ember-detail-page .ember-hero-shell {
+  z-index: 2;
+}
+
+.ember-detail-page .ember-hero-media {
+  border-color: rgba(215, 168, 73, 0.62);
+  box-shadow: 0 0 0 5px rgba(95, 49, 17, 0.28), 0 38px 100px rgba(0, 0, 0, 0.7);
+}
+
+.ember-detail-page .ember-summary-section,
+.ember-detail-page .ember-app-section,
+.ember-detail-page .ember-scope-section,
+.ember-detail-page .ember-facts-section {
+  background: #f4ead7;
+}
+
+.ember-detail-page .ember-app-section,
+.ember-detail-page .ember-facts-section {
+  background:
+    linear-gradient(rgba(255, 250, 240, 0.94), rgba(255, 250, 240, 0.94)),
+    repeating-linear-gradient(90deg, #7a451b 0 1px, transparent 1px 64px);
+}
+
+.ember-detail-page .ember-architecture-rail article,
+.ember-detail-page .ember-panel-grid article,
+.ember-detail-page .ember-facts-grid div {
+  border-color: rgba(141, 82, 29, 0.32);
+  background: linear-gradient(180deg, #fffaf0, #f5e6cc);
+  box-shadow: 0 16px 36px rgba(67, 34, 12, 0.08);
+}
+
+.ember-detail-page .application-gallery-section {
+  color: #f6ead5;
+  background:
+    radial-gradient(circle at 82% 14%, rgba(143, 80, 27, 0.24), transparent 30%),
+    linear-gradient(135deg, #0d0805, #241208);
+}
+
+.ember-detail-page .application-gallery-section .gallery-heading h2,
+.ember-detail-page .application-gallery-section .gallery-heading > p,
+.ember-detail-page .application-gallery-section .app-shot-copy h3 {
+  color: #f6ead5;
+}
+
+.ember-detail-page .application-gallery-section .app-shot-copy p {
+  color: rgba(246, 234, 213, 0.68);
+}
+
+.ember-detail-page .application-gallery-section .app-shot-card {
+  border-color: rgba(215, 168, 73, 0.3);
+  background: #17100b;
+}
+
+.ember-detail-page .application-gallery-section .app-shot-image {
+  border-bottom: 1px solid rgba(215, 168, 73, 0.28);
+  background: #0b0705;
+}
+
+.ember-detail-page .technology-section {
+  background: #efe2cb;
+}
+
+.ember-detail-page .technology-list li {
+  border-color: rgba(141, 82, 29, 0.28);
+  background: #fff7e8;
+}
+
+@media (max-width: 900px) {
+  .project-showcase-card.is-sentinel,
+  .project-showcase-card.is-catalyst {
+    grid-template-columns: 1fr;
+  }
+
+  .sentinel-hero,
+  .catalyst-hero {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .sentinel-detail-page .ember-hero-copy h1,
+  .catalyst-detail-page .ember-hero-copy h1 {
+    font-size: clamp(2.65rem, 13vw, 4.2rem);
+  }
+
+  .button-sentinel,
+  .button-catalyst {
+    width: 100%;
+  }
+}
+
+/* Red Dirt: game-day sports bar energy around a finished operations product. */
+.red-dirt-detail-page {
+  background: #0b0c0e;
+}
+
+.red-dirt-detail-page .site-header {
+  background: rgba(10, 10, 12, 0.92);
+  border-bottom-color: rgba(194, 49, 44, 0.35);
+}
+
+.red-dirt-detail-page .brand-name,
+.red-dirt-detail-page .brand-subtitle,
+.red-dirt-detail-page .primary-nav a {
+  color: #fff4df;
+}
+
+.red-dirt-detail-page .brand-subtitle {
+  color: rgba(255, 225, 177, 0.72);
+}
+
+.red-dirt-detail-page .brand-mark,
+.red-dirt-detail-page .footer-brand .brand-mark {
+  filter: sepia(0.22) saturate(1.45) hue-rotate(-12deg) brightness(0.98);
+}
+
+.red-dirt-detail-page .primary-nav a::after {
+  background: #d8a13a;
+}
+
+.red-dirt-detail-page .header-cta {
+  background: linear-gradient(180deg, #c5332c, #8e1716);
+  border-color: rgba(224, 78, 67, 0.72);
+}
+
+.red-dirt-detail-page .nav-toggle {
+  color: #fff4df;
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.red-dirt-detail-page .nav-toggle span {
+  background: currentColor;
+}
+
+.red-dirt-detail-page .primary-nav.open {
+  background: rgba(10, 10, 12, 0.98);
+  border-color: rgba(194, 49, 44, 0.34);
+}
+
+.red-dirt-detail-page .case-hero {
+  background:
+    radial-gradient(circle at 84% 18%, rgba(216, 161, 58, 0.16), transparent 28%),
+    radial-gradient(circle at 62% 72%, rgba(181, 38, 32, 0.2), transparent 34%),
+    linear-gradient(118deg, #07080a 0%, #15100e 52%, #3b120e 100%);
+}
+
+.red-dirt-detail-page .case-hero-grid {
+  opacity: 0.24;
+  background-image:
+    linear-gradient(rgba(216, 161, 58, 0.13) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(181, 38, 32, 0.12) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.red-dirt-detail-page .case-hero-title {
+  color: #fff6e8;
+  text-shadow: 0 8px 38px rgba(0, 0, 0, 0.5);
+}
+
+.red-dirt-detail-page .case-hero-title .accent-word,
+.red-dirt-detail-page .section-line span {
+  color: #d8a13a;
+}
+
+.red-dirt-detail-page .case-hero-screen {
+  border-color: rgba(216, 161, 58, 0.4);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
+}
+
+.red-dirt-detail-page .case-summary,
+.red-dirt-detail-page .case-facts-section,
+.red-dirt-detail-page .architecture-section,
+.red-dirt-detail-page .system-source-section,
+.red-dirt-detail-page .application-gallery-section,
+.red-dirt-detail-page .technology-section {
+  background: #f3eadc;
+}
+
+.red-dirt-detail-page .product-positioning-section,
+.red-dirt-detail-page .project-scale-section,
+.red-dirt-detail-page .dashboard-section,
+.red-dirt-detail-page .walkthrough-section {
+  background:
+    radial-gradient(circle at 84% 8%, rgba(181, 38, 32, 0.08), transparent 28%),
+    #fffdf8;
+}
+
+.red-dirt-detail-page .business-problem-section,
+.red-dirt-detail-page .database-section,
+.red-dirt-detail-page .desktop-section {
+  background: #15100e;
+}
+
+.red-dirt-detail-page .business-problem-section h2,
+.red-dirt-detail-page .business-problem-section h3,
+.red-dirt-detail-page .database-section h2,
+.red-dirt-detail-page .database-section h3,
+.red-dirt-detail-page .desktop-section h2,
+.red-dirt-detail-page .desktop-section h3 {
+  color: #fff1d6;
+}
+
+.red-dirt-detail-page .business-problem-section p,
+.red-dirt-detail-page .database-section p,
+.red-dirt-detail-page .desktop-section p {
+  color: rgba(255, 239, 214, 0.7);
+}
+
+.red-dirt-detail-page .summary-grid div,
+.red-dirt-detail-page .case-facts-grid div,
+.red-dirt-detail-page .app-shot-card {
+  border-color: rgba(151, 75, 28, 0.28);
+  background: #fff9ee;
+}
+
+.red-dirt-detail-page .app-shot-image {
+  border-bottom: 3px solid #a52622;
+}
+
+.red-dirt-detail-page .technology-list li {
+  border-color: rgba(151, 75, 28, 0.24);
+  background: #fff8ea;
+}
+
+.red-dirt-detail-page .case-cta {
+  background:
+    radial-gradient(circle at 80% 22%, rgba(216, 161, 58, 0.18), transparent 30%),
+    linear-gradient(100deg, #0a0909, #481612);
+}
+
+/* Red River: rugged restoration field operations and industrial worksite cues. */
+.river-detail-page .river-hero {
+  background:
+    radial-gradient(circle at 80% 12%, rgba(236, 153, 55, 0.14), transparent 26%),
+    linear-gradient(112deg, #070707 0%, #17110e 48%, #5a1a12 100%);
+}
+
+.river-detail-page .river-hero::after {
+  background:
+    repeating-linear-gradient(132deg, transparent 0 64px, rgba(219, 139, 47, 0.055) 65px 73px, transparent 74px 138px),
+    radial-gradient(circle at 82% 12%, rgba(200, 52, 39, 0.18), transparent 30%);
+}
+
+.river-detail-page .ember-hero-media {
+  border: 2px solid rgba(203, 67, 48, 0.58);
+  box-shadow: 0 0 0 5px rgba(63, 35, 23, 0.38), 0 34px 95px rgba(0, 0, 0, 0.65);
+}
+
+.river-detail-page .river-summary-section,
+.river-detail-page .ember-app-section,
+.river-detail-page .ember-scope-section,
+.river-detail-page .ember-facts-section,
+.river-detail-page .technology-section {
+  background:
+    linear-gradient(rgba(247, 243, 237, 0.96), rgba(247, 243, 237, 0.96)),
+    repeating-linear-gradient(90deg, #909090 0 1px, transparent 1px 84px);
+}
+
+.river-detail-page .ember-app-section,
+.river-detail-page .ember-facts-section {
+  background: #eee9e1;
+}
+
+.river-detail-page .summary-grid div,
+.river-detail-page .ember-architecture-rail article,
+.river-detail-page .ember-panel-grid article,
+.river-detail-page .ember-facts-grid div {
+  border-color: rgba(140, 55, 40, 0.3);
+  background: linear-gradient(180deg, #fff, #f5ede7);
+  box-shadow: 0 15px 34px rgba(56, 33, 25, 0.07);
+}
+
+.river-detail-page .ember-panel-grid article {
+  border-top: 3px solid #aa2c22;
+}
+
+.river-detail-page .technology-list li {
+  border-color: rgba(140, 55, 40, 0.26);
+  background: #fffaf5;
+}
+
+.river-detail-page .river-dashboard-section {
+  background:
+    repeating-linear-gradient(132deg, transparent 0 76px, rgba(222, 146, 56, 0.05) 77px 86px, transparent 87px 152px),
+    linear-gradient(135deg, #080808, #50150f);
+}
+
+.river-detail-page .river-cta {
+  background:
+    radial-gradient(circle at 84% 20%, rgba(225, 145, 53, 0.15), transparent 28%),
+    linear-gradient(92deg, #090909, #5a1811);
 }
 
 @media (max-width: 520px) {
@@ -5547,5 +6290,82 @@ label span em {
   .case-facts-grid,
   .positioning-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Final cascade locks for case-study hero variants built on the shared Ember layout. */
+body.sentinel-detail-page .sentinel-hero {
+  min-height: calc(100vh - 76px);
+  background:
+    radial-gradient(circle at 18% 18%, rgba(34, 147, 168, 0.15), transparent 26%),
+    radial-gradient(circle at 78% 14%, rgba(187, 43, 151, 0.12), transparent 26%),
+    linear-gradient(115deg, #03090f 0%, #07141d 48%, #101526 100%);
+}
+
+body.sentinel-detail-page .sentinel-hero::before {
+  background: linear-gradient(90deg, transparent, rgba(71, 201, 221, 0.9), rgba(190, 58, 167, 0.6), transparent);
+}
+
+body.catalyst-detail-page .catalyst-hero {
+  min-height: calc(100vh - 76px);
+  color: #f7fbfc;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(44, 177, 188, 0.2), transparent 28%),
+    linear-gradient(118deg, #0b2135 0%, #102a43 54%, #174d59 100%);
+}
+
+body.catalyst-detail-page .catalyst-hero::before {
+  background: linear-gradient(90deg, transparent, rgba(44, 177, 188, 0.86), transparent);
+}
+
+.ember-hero-copy > .status-badge {
+  width: fit-content;
+  justify-self: start;
+}
+
+.project-showcase-content > .status-badge {
+  width: fit-content;
+  align-self: flex-start;
+}
+
+body.sentinel-detail-page .sentinel-hero .ember-hero-media.media-trigger {
+  border-color: rgba(71, 201, 221, 0.64);
+  box-shadow: 0 0 0 1px rgba(192, 55, 169, 0.16), 0 34px 100px rgba(0, 0, 0, 0.72), 0 0 52px rgba(45, 178, 198, 0.14);
+}
+
+body.sentinel-detail-page .sentinel-hero .status-badge {
+  color: #83edf6;
+  border-color: rgba(71, 201, 221, 0.54);
+  background: rgba(55, 182, 201, 0.05);
+}
+
+body.sentinel-detail-page .sentinel-hero .text-link-light {
+  color: #b9edf3;
+}
+
+body.catalyst-detail-page .catalyst-hero .ember-hero-media.media-trigger {
+  border-color: rgba(94, 213, 220, 0.58);
+  box-shadow: 0 34px 90px rgba(2, 15, 27, 0.42), 0 0 0 1px rgba(94, 213, 220, 0.12);
+}
+
+body.catalyst-detail-page .catalyst-hero .status-badge {
+  color: #8de9ee;
+  border-color: rgba(94, 213, 220, 0.5);
+  background: rgba(94, 213, 220, 0.06);
+}
+
+body.catalyst-detail-page .catalyst-hero .text-link-light {
+  color: #c3edf0;
+}
+
+body.river-detail-page .ember-app-section,
+body.river-detail-page .ember-facts-section {
+  background: #eee9e1;
+}
+
+@media (max-width: 900px) {
+  body.sentinel-detail-page .sentinel-hero,
+  body.catalyst-detail-page .catalyst-hero {
+    min-height: 0;
   }
 }

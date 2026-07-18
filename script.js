@@ -1,6 +1,13 @@
-// Future integrations are configured here. Keep API keys and secrets out of this file.
+/**
+ * Shared behavior and content data for the multi-page OCBS website.
+ *
+ * The constants below are the easiest edit points for services, social links, and
+ * portfolio media. The functions below DOMContentLoaded own interactive behavior.
+ * Keep API keys and secrets out of this browser-delivered file.
+ */
 const CONTACT_FORM_ENDPOINT = "https://formspree.io/f/xkodwbar";
 
+// Site-wide external links and video asset locations.
 const SITE_CONFIG = {
   facebookUrl: "https://www.facebook.com/share/1DryYraQMj/?mibextid=wwXIfr",
   linkedinUrl: "https://www.linkedin.com/in/dalton-orahood-7054731a5",
@@ -200,6 +207,10 @@ document.addEventListener("DOMContentLoaded", () => {
   scrollToHashTarget();
 });
 
+/**
+ * Wire the responsive navigation, keyboard focus trap, Escape handling, and resize
+ * cleanup. Keep aria-expanded and body.nav-open synchronized with the visible menu.
+ */
 function setupNavigation() {
   const navToggle = document.querySelector(".nav-toggle");
   const primaryNav = document.querySelector("#primaryNav");
@@ -259,6 +270,7 @@ function setupNavigation() {
   });
 }
 
+/** Render service cards from SERVICES into pages that provide #servicesList. */
 function renderServices() {
   const target = document.querySelector("#servicesList");
   if (!target) return;
@@ -278,6 +290,7 @@ function renderServices() {
   `).join("");
 }
 
+/** Populate social anchors from SITE_CONFIG without duplicating URLs in the HTML. */
 function renderSocialLinks() {
   const target = document.querySelector("#socialLinks");
   if (!target) return;
@@ -302,6 +315,10 @@ function renderSocialLinks() {
   }).join("");
 }
 
+/**
+ * Validate contact fields, submit to Formspree, and expose an accessible status.
+ * CONTACT_FORM_ENDPOINT is public configuration; never add credentials here.
+ */
 function setupContactForm() {
   const form = document.querySelector("#contactForm");
   if (!form) return;
@@ -393,6 +410,7 @@ function setupContactForm() {
   });
 }
 
+/** Render only portfolio media explicitly marked available. */
 function renderPortfolioMedia() {
   document.querySelectorAll("[data-portfolio-media]").forEach((target) => {
     const media = PORTFOLIO_MEDIA[target.dataset.portfolioMedia];
@@ -401,6 +419,7 @@ function renderPortfolioMedia() {
   });
 }
 
+/** Build escaped figure markup for one portfolio-media configuration object. */
 function createMediaMarkup(media) {
   if (media.available) {
     return `
@@ -423,6 +442,7 @@ function createMediaMarkup(media) {
     </figure>`;
 }
 
+/** Render the Power BI screenshot gallery from DASHBOARD_PAGES. */
 function renderDashboardGallery() {
   const target = document.querySelector("#dashboardGallery");
   if (!target) return;
@@ -446,6 +466,7 @@ function renderDashboardGallery() {
   }).join("");
 }
 
+/** Render desktop-application screenshots from APPLICATION_SCREENSHOTS. */
 function renderApplicationGallery() {
   const target = document.querySelector("#applicationGallery");
   if (!target) return;
@@ -463,6 +484,7 @@ function renderApplicationGallery() {
   `).join("");
 }
 
+/** Configure the optional demo video, poster, captions, and fallback state. */
 function renderVideo() {
   const target = document.querySelector("#videoContainer");
   if (!target) return;
@@ -494,6 +516,10 @@ function renderVideo() {
   target.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}" title="Red Dirt Sports Bar BI Suite project walkthrough" decoding="async" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
 }
 
+/**
+ * Provide the shared click-to-enlarge dialog and restore focus when it closes.
+ * This event delegation also supports gallery items rendered after page load.
+ */
 function setupLightbox() {
   const dialog = document.querySelector("#mediaLightbox");
   if (!dialog) return;
@@ -535,12 +561,14 @@ function setupLightbox() {
   });
 }
 
+/** Write the current year into each element carrying data-current-year. */
 function setCurrentYear() {
   document.querySelectorAll("[data-current-year]").forEach((target) => {
     target.textContent = String(new Date().getFullYear());
   });
 }
 
+/** Apply a header-aware scroll offset when the page opens with a URL hash. */
 function scrollToHashTarget() {
   if (!window.location.hash) return;
   const id = window.location.hash.slice(1);
@@ -554,6 +582,7 @@ function scrollToHashTarget() {
   window.setTimeout(scroll, 900);
 }
 
+/** Escape text before inserting configuration values into generated HTML. */
 function escapeHTML(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -563,6 +592,7 @@ function escapeHTML(value) {
     .replaceAll("'", "&#039;");
 }
 
+/** Escape text for use inside a generated HTML attribute. */
 function escapeAttribute(value) {
   return escapeHTML(value).replaceAll("`", "&#096;");
 }
