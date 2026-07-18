@@ -6363,6 +6363,43 @@ body.river-detail-page .ember-facts-section {
   background: #eee9e1;
 }
 
+/* Keep Sentinel's light interface type on the dark surfaces it was designed for. */
+body.sentinel-detail-page .sentinel-summary-section,
+body.sentinel-detail-page .sentinel-gallery-section,
+body.sentinel-detail-page .sentinel-walkthrough {
+  color: #d8e7eb;
+  background: #07121a;
+}
+
+body.sentinel-detail-page .sentinel-app-section,
+body.sentinel-detail-page .sentinel-facts-section {
+  color: #d8e7eb;
+  background: #091720;
+}
+
+body.sentinel-detail-page .sentinel-gallery-section .gallery-heading h2 {
+  color: #eefbfe;
+}
+
+body.sentinel-detail-page .sentinel-gallery-section .gallery-heading > p {
+  color: #91aab3;
+}
+
+body.sentinel-detail-page .sentinel-security-section {
+  color: #d8e7eb;
+  background:
+    radial-gradient(circle at 78% 24%, rgba(183, 42, 153, 0.15), transparent 30%),
+    linear-gradient(135deg, #030b11, #0a202b);
+}
+
+body.sentinel-detail-page .sentinel-security-section .ember-dashboard-copy h2 {
+  color: #eefbfe;
+}
+
+body.sentinel-detail-page .sentinel-security-section .ember-dashboard-copy p {
+  color: #b3c9d0;
+}
+
 @media (max-width: 900px) {
   body.sentinel-detail-page .sentinel-hero,
   body.catalyst-detail-page .catalyst-hero {
